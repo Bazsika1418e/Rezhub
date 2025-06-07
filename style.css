@@ -1,0 +1,122 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #191970;
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+nav {
+  background: #222266;
+  padding: 0.5em 2em;
+  display: flex;
+  gap: 2em;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.09);
+}
+
+nav a {
+  color: #aaaaff;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5em 1em;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+}
+
+nav a.active, nav a:hover {
+  background: #2828a0;
+  color: #fff;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.animation-container {
+  display: flex;
+  gap: 2em;
+  margin-bottom: 2em;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #4f8cff, #a3d8ff);
+  border-radius: 50%;
+  box-shadow: 0 0 24px #4f8cff99;
+  animation: bounce 1.2s infinite;
+}
+.circle.delay {
+  animation-delay: 0.6s;
+  background: linear-gradient(135deg, #ff8cfc, #ffd8f8);
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0) scale(1);}
+  20% { transform: translateY(-30px) scale(1.1);}
+  50% { transform: translateY(0) scale(0.95);}
+  70% { transform: translateY(10px) scale(1.05);}
+}
+
+.coming-soon {
+  font-size: 3em;
+  letter-spacing: 0.1em;
+  margin: 0.5em 0;
+  animation: fadeIn 1.2s;
+}
+
+.coming-soon.small {
+  font-size: 1.2em;
+  color: #ffeedd;
+  opacity: 0.7;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(16px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+.owners-list {
+  display: flex;
+  gap: 2em;
+  flex-wrap: wrap;
+  margin-bottom: 2em;
+  justify-content: center;
+}
+
+.owner-card {
+  background: #23239c;
+  padding: 1.5em 2em;
+  border-radius: 18px;
+  box-shadow: 0 2px 16px #0002;
+  min-width: 180px;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.owner-card:hover {
+  transform: translateY(-6px) scale(1.04);
+  box-shadow: 0 8px 32px #0004;
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1.2s forwards;
+}
+
+.script-section {
+  background: #28288c;
+  padding: 2em 3em;
+  border-radius: 18px;
+  box-shadow: 0 2px 16px #0003;
+  margin-top: 1em;
+  text-align: center;
+}

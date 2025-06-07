@@ -4,6 +4,51 @@
   <meta charset="UTF-8">
   <title>Script - Animated Website</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Modern Copy Button Styles */
+    .copy-btn-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 1em;
+    }
+    .copy-btn {
+      background: linear-gradient(90deg, #4f8cff 40%, #9f6eff 100%);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 0.6em 1.2em;
+      font-size: 1.05em;
+      font-weight: 600;
+      box-shadow: 0 4px 16px #4f8cff30;
+      cursor: pointer;
+      transition: background 0.18s, transform 0.11s;
+      outline: none;
+      display: flex;
+      align-items: center;
+      gap: 0.6em;
+      position: relative;
+      overflow: hidden;
+    }
+    .copy-btn:active {
+      transform: scale(0.98);
+    }
+    .copy-btn .icon {
+      font-size: 1.1em;
+      transition: color 0.15s;
+    }
+    .copy-btn.copied {
+      background: linear-gradient(90deg, #22c55e 40%, #16a34a 100%);
+    }
+    .copy-btn.copied .icon {
+      color: #fff176;
+    }
+    .copy-btn .copy-label {
+      transition: color 0.2s;
+    }
+    .copy-btn.copied .copy-label {
+      color: #fff176;
+    }
+  </style>
 </head>
 <body>
   <nav>
@@ -14,9 +59,34 @@
   <main>
     <h1>Script</h1>
     <div class="script-section fade-in">
-      <p>This section will include scripts, tools, or code demos in the future.</p>
-      <p class="coming-soon small">Coming soon!</p>
+      <p>Use the following script in your game:</p>
+      <pre id="the-script" class="script-block">loadstring(game:HttpGet("https://raw.githubusercontent.com/Bazsika1418e/tet/refs/heads/main/tet.txt"))()</pre>
+      <div class="copy-btn-container">
+        <button id="copy-btn" class="copy-btn" onclick="copyScript()">
+          <span class="icon" id="copy-icon">📋</span>
+          <span class="copy-label" id="copy-label">Copy Script</span>
+        </button>
+      </div>
+      <p class="coming-soon small">More scripts coming soon!</p>
     </div>
+    <script>
+      function copyScript() {
+        const scriptText = document.getElementById('the-script').textContent;
+        const btn = document.getElementById('copy-btn');
+        const label = document.getElementById('copy-label');
+        const icon = document.getElementById('copy-icon');
+        navigator.clipboard.writeText(scriptText).then(() => {
+          btn.classList.add('copied');
+          label.textContent = "Copied!";
+          icon.textContent = "✅";
+          setTimeout(() => {
+            btn.classList.remove('copied');
+            label.textContent = "Copy Script";
+            icon.textContent = "📋";
+          }, 1500);
+        });
+      }
+    </script>
   </main>
 </body>
 </html>

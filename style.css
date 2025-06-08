@@ -8,6 +8,7 @@ body {
   flex-direction: column;
 }
 
+/* NAVIGATION BAR */
 nav {
   background: #222266;
   padding: 0.5em 2em;
@@ -30,6 +31,7 @@ nav a.active, nav a:hover {
   color: #fff;
 }
 
+/* MAIN PAGE LAYOUT */
 main {
   flex: 1;
   display: flex;
@@ -38,6 +40,7 @@ main {
   justify-content: center;
 }
 
+/* ANIMATION */
 .animation-container {
   display: flex;
   gap: 2em;
@@ -66,6 +69,7 @@ main {
   70% { transform: translateY(10px) scale(1.05);}
 }
 
+/* TITLES & MESSAGES */
 .coming-soon {
   font-size: 2.6em;
   letter-spacing: 0.1em;
@@ -83,6 +87,12 @@ main {
   animation: fadeIn 1.4s;
 }
 
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(16px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+/* HOME PAGE - SCRIPT HIGHLIGHT */
 .script-highlight {
   background: #23239c;
   color: #fff176;
@@ -97,6 +107,7 @@ main {
   margin-bottom: 0.6em;
 }
 
+/* HOME PAGE - FEATURES LIST */
 .feature-list {
   list-style: disc;
   text-align: left;
@@ -108,6 +119,7 @@ main {
   font-size: 1.07em;
 }
 
+/* HOME PAGE - BUTTON */
 .home-btn {
   display: inline-block;
   background: linear-gradient(90deg, #4f8cff 40%, #9f6eff 100%);
@@ -129,7 +141,106 @@ main {
   transform: scale(1.04);
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(16px);}
-  to { opacity: 1; transform: translateY(0);}
+/* OWNERS PAGE */
+.owners-list {
+  display: flex;
+  gap: 2em;
+  flex-wrap: wrap;
+  margin-bottom: 2em;
+  justify-content: center;
+}
+
+.owner-card {
+  background: #23239c;
+  padding: 1.5em 2em;
+  border-radius: 18px;
+  box-shadow: 0 2px 16px #0002;
+  min-width: 180px;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+  opacity: 0;
+  animation: fadeIn 1.2s forwards;
+}
+.owner-card:hover {
+  transform: translateY(-6px) scale(1.04);
+  box-shadow: 0 8px 32px #0004;
+}
+.owner-card:nth-child(2) { animation-delay: 0.3s; }
+.owner-card:nth-child(3) { animation-delay: 0.5s; }
+.owner-card:nth-child(4) { animation-delay: 0.7s; }
+
+/* SCRIPT PAGE */
+.script-section {
+  background: #28288c;
+  padding: 2em 3em;
+  border-radius: 18px;
+  box-shadow: 0 2px 16px #0003;
+  margin-top: 1em;
+  text-align: center;
+  min-width: 300px;
+}
+
+.script-block {
+  background: #181845;
+  color: #fff176;
+  font-family: monospace;
+  padding: 1em 1.2em;
+  border-radius: 8px;
+  margin: 1em 0 0.5em 0;
+  font-size: 1.05em;
+  word-break: break-all;
+  box-shadow: 0 1px 6px #0002;
+  text-align: left;
+  overflow-x: auto;
+}
+
+/* MODERN COPY BUTTON */
+.copy-btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1em;
+}
+.copy-btn {
+  background: linear-gradient(90deg, #4f8cff 40%, #9f6eff 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6em 1.2em;
+  font-size: 1.05em;
+  font-weight: 600;
+  box-shadow: 0 4px 16px #4f8cff30;
+  cursor: pointer;
+  transition: background 0.18s, transform 0.11s;
+  outline: none;
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  position: relative;
+  overflow: hidden;
+}
+.copy-btn:active {
+  transform: scale(0.98);
+}
+.copy-btn .icon {
+  font-size: 1.1em;
+  transition: color 0.15s;
+}
+.copy-btn.copied {
+  background: linear-gradient(90deg, #22c55e 40%, #16a34a 100%);
+}
+.copy-btn.copied .icon {
+  color: #fff176;
+}
+.copy-btn .copy-label {
+  transition: color 0.2s;
+}
+.copy-btn.copied .copy-label {
+  color: #fff176;
+}
+
+/* UTILITY CLASSES */
+.coming-soon.small {
+  font-size: 1.2em;
+  color: #ffeedd;
+  opacity: 0.7;
 }
